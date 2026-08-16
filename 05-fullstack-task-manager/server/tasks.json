@@ -14,5 +14,13 @@
     "status": "in-progress",
     "priority": "medium",
     "dueDate": "2026-08-22"
+  },
+  {
+    "id": 3,
+    "title": "Study",
+    "description": "Maths",
+    "status": "todo",
+    "priority": "high",
+    "dueDate": "2026-08-20"
   }
 ]
