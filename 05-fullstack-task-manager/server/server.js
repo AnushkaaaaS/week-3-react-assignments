@@ -124,6 +124,29 @@ app.put("/api/tasks/:id", (req, res) => {
  
   res.json(tasks[index]);
 });
+
+app.delete("/api/tasks/:id", (req, res) => {
+  const data = fs.readFileSync(file);
+  const tasks = JSON.parse(data);
+ 
+  const index = tasks.findIndex(
+    (task) => task.id == req.params.id
+  );
+ 
+  if (index === -1) {
+    return res.status(404).json({
+      message: "Task not found"
+    });
+  }
+ 
+  tasks.splice(index, 1);
+ 
+  fs.writeFileSync(file, JSON.stringify(tasks, null, 2));
+ 
+  res.json({
+    message: "Task deleted successfully"
+  });
+});
  
 app.listen(5000, () => {
   console.log("Server running on port 5000");
