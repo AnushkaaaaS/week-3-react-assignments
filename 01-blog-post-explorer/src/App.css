@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+ 
+.container {
+  width: 90%;
+  margin: 30px auto;
+}
+ 
+h1 {
+  text-align: center;
+}
+ 
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+ 
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+ 
+.card {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+ 
+.card h2 {
+  font-size: 20px;
+}
+ 
+.card p {
+  color: #555;
+}
+ 
+.comment {
+  background-color: burlywood;
+  padding: 15px;
+  margin: 10px 0;
+}
+ 
+button {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+}
+ 
+@media (max-width: 700px) {
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}
+ 
