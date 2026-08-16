@@ -76,6 +76,54 @@ app.post("/api/tasks", (req, res) => {
  
   res.status(201).json(newTask);
 });
+
+app.put("/api/tasks/:id", (req, res) => {
+  const data = fs.readFileSync(file);
+  const tasks = JSON.parse(data);
+ 
+  const index = tasks.findIndex(
+    (task) => task.id == req.params.id
+  );
+ 
+  if (index === -1) {
+    return res.status(404).json({
+      message: "Task not found"
+    });
+  }
+ 
+  const { title, description, status, priority, dueDate } = req.body;
+ 
+  if (!title) {
+    return res.status(400).json({
+      message: "Title is required"
+    });
+  }
+ 
+  if (!["todo", "in-progress", "done"].includes(status)) {
+    return res.status(400).json({
+      message: "Invalid status"
+    });
+  }
+ 
+  if (!["low", "medium", "high"].includes(priority)) {
+    return res.status(400).json({
+      message: "Invalid priority"
+    });
+  }
+ 
+  tasks[index] = {
+    id: tasks[index].id,
+    title: title,
+    description: description || "",
+    status: status,
+    priority: priority,
+    dueDate: dueDate || ""
+  };
+ 
+  fs.writeFileSync(file, JSON.stringify(tasks, null, 2));
+ 
+  res.json(tasks[index]);
+});
  
 app.listen(5000, () => {
   console.log("Server running on port 5000");
