@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Learn React",
+    "description": "Practice React basics",
+    "status": "todo",
+    "priority": "high",
+    "dueDate": "2026-08-20"
+  },
+  {
+    "id": 2,
+    "title": "Build API",
+    "description": "Practice Express CRUD",
+    "status": "in-progress",
+    "priority": "medium",
+    "dueDate": "2026-08-22"
+  }
+]
